@@ -50,7 +50,8 @@
      <Compile Include="Assets\login&amp;regit\jump_up.cs" />
      <Compile Include="Assets\login&amp;regit\regit_onclick.cs" />
      <Compile Include="Assets\login&amp;regit\show.cs" />
-     <Compile Include="Assets\pull_out.cs" />
+     <Compile Include="Assets\main\pull_out.cs" />
+     <Compile Include="Assets\main\pvp.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

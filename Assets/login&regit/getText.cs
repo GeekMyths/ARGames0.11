@@ -20,9 +20,9 @@ public class getText : MonoBehaviour {
         print(user);
         string password = GameObject.Find("Ip_password").GetComponent<InputField>().text;
         print(password);
-        Connect(user, password);
+        //Connect(user, password);
 
-
+		Application.LoadLevel ("Main");
     }
     IEnumerator Connect(string account,string pwd)
     {
