@@ -13,6 +13,6 @@ public class pvp : MonoBehaviour {
 	
 	}
 	public void OnClick() {
-		Application.LoadLevel ("Game");
+		Application.LoadLevel ("HelloAR");
 	}
 }

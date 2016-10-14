@@ -5,33 +5,33 @@ using UnityEngine.UI;
 public class pull_out : MonoBehaviour {
 	private bool isRight;
 	private bool click;
-	private Resolution[] res;
-	private GameObject game;
+	private Rigidbody game;
 	private float distance;
 	private Vector3 endPoi;
 	private float process;
+	private RectTransform group_friend;
 	// Use this for initialization
 	void Start () {
 		isRight = false;
 		click = false;
-		res = Screen.resolutions;
-		game = GameObject.Find ("friend");
-		distance = res [0].width / 32;
+		game = GameObject.Find ("friend").GetComponent<Rigidbody>();
+		group_friend = GameObject.Find ("friend").GetComponent<RectTransform>();
+		distance = group_friend.rect.width / 20;
+		endPoi = new Vector3 (game.transform.position.x - distance, game.transform.position.y, game.transform.position.z);
+		game.position = endPoi;
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		
 		if(click){
-			process += Time.deltaTime * 2;
+			process += 0.02f * 2;
 			if (process < 1) {
-				GameObject.Find ("friend").transform.position = Vector3.Lerp (game.transform.position, endPoi, process);
+				game.MovePosition(Vector3.Lerp (game.transform.position, endPoi, process));
 			} else {
 				click = false;
 			}
 		}
-
 	}
 
 	public void Onclick () {

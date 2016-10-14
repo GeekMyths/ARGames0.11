@@ -19,3 +19,5 @@ D:\Users\Maple\Documents\OurGame\Temp\bin\Debug\UnityEngine.UI.xml
 D:\Users\Maple\Documents\OurGame\Temp\bin\Debug\UnityEngine.Networking.xml
 D:\Users\Maple\Documents\OurGame\obj\Debug\Assembly-CSharp.dll
 D:\Users\Maple\Documents\OurGame\obj\Debug\Assembly-CSharp.pdb
+D:\Users\Maple\Documents\OurGame\Temp\bin\Debug\EasyAR.Unity.dll
+D:\Users\Maple\Documents\OurGame\Temp\bin\Debug\LitJson.dll
