@@ -64,9 +64,11 @@
      <Compile Include="Assets\login&amp;regit\regit.cs" />
      <Compile Include="Assets\login&amp;regit\regit_onclick.cs" />
      <Compile Include="Assets\login&amp;regit\show.cs" />
-     <Compile Include="Assets\main\pull_out.cs" />
-     <Compile Include="Assets\main\pvp.cs" />
-     <Compile Include="Assets\main\quit.cs" />
+     <Compile Include="Assets\main\Scripts\dialog_cancel.cs" />
+     <Compile Include="Assets\main\Scripts\dialog_ok.cs" />
+     <Compile Include="Assets\main\Scripts\pull_out.cs" />
+     <Compile Include="Assets\main\Scripts\pvp.cs" />
+     <Compile Include="Assets\main\Scripts\quit.cs" />
      <None Include="Assets\EasyAR\Resources\Shaders\TransparentVideo.shader" />
      <None Include="Assets\EasyAR\Resources\Shaders\RealityPlane.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
