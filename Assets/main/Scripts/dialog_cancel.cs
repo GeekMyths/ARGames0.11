@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class dialog_cancel : MonoBehaviour {
+	public GameObject dialog;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,7 +13,6 @@ public class dialog_cancel : MonoBehaviour {
 	
 	}
 	public void OnClick(){
-		GameObject dialog = GameObject.Find ("Dialog");
 		dialog.SetActive (false);
 	}
 }
