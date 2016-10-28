@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SelectServant\Scripts\listServant.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\fight.cs">
     <Files>
-      <File FileName="Assets\Login&amp;Regit\Scripts\show.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main\Scripts\pull_out.cs" Line="1" Column="1" />
-      <File FileName="Assets\SelectServant\Scripts\listServant.cs" Line="64" Column="118" />
-      <File FileName="Assets\SelectServant\Scripts\Fun.cs" Line="1" Column="1" />
-      <File FileName="Assets\SelectServant\Scripts\hero.cs" Line="1" Column="1" />
-      <File FileName="Assets\SelectServant\Scripts\PlayerPrefsExtend.cs" Line="1" Column="1" />
-      <File FileName="Assets\SelectServant\Scripts\skill.cs" Line="1" Column="1" />
-      <File FileName="Assets\SelectServant\Scripts\tongxin.cs" Line="1" Column="1" />
-      <File FileName="C:\Users\Maple\Desktop\AutoSetTextureUISprite\Assets\Editor\AutoSetTextureUISprite.cs" Line="1" Column="1" />
+      <File FileName="Assets\SelectServant\Scripts\listServant.cs" Line="215" Column="43" />
+      <File FileName="Assets\SelectServant\Scripts\select.cs" Line="1" Column="1" />
+      <File FileName="Assets\Login&amp;Regit\Scripts\login.cs" Line="1" Column="1" />
+      <File FileName="Assets\SelectServant\Scripts\myTime.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\hero.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\skill.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\fight.cs" Line="123" Column="1" />
+      <File FileName="Assets\Scripts\Fun.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\buff.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
