@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
-using UnityEditor.Events;
-using UnityEngine.Events;
 using System.Collections; 
 using System.Collections.Generic;  
+using System.Text;
 using LitJson;
 
 public class listServant : MonoBehaviour {
+	string url_getMyEmp = "http://220.184.61.5:8080/Game1/s/battle/getMyEmp";
 	List<hero> emps=new List<hero>();
 	string token;
 	int uid;
-
 	private Vector3 p_left;
 	private Vector3 p_right;
 	private Vector3 p_current;
@@ -36,8 +34,7 @@ public class listServant : MonoBehaviour {
 		//get servants' count and id
 		token = PlayerPrefs.GetString ("token");
 		uid = PlayerPrefs.GetInt ("uid");
-		//StartCoroutine (GetMyEmp());
-		//servant_count = emps.Count;
+		StartCoroutine (GetMyEmp());
 		//init button of UI and set shade's avtive
 		bt_left = GameObject.Find ("left");
 		bt_right = GameObject.Find ("right");
@@ -59,7 +56,7 @@ public class listServant : MonoBehaviour {
 			servant.name = "" + i;
 			//int id = emps [i].empid;
 			//AddTag (id.ToString(),servant);
-			AddTag (i.ToString(),servant);
+			AddTag(""+i,servant);
 			servant.transform.FindChild("picture").GetComponent<RawImage>().texture = Resources.Load<Texture> (""+i);
 			//servant.transform.FindChild("picture").GetComponent<RawImage>().texture = Resources.Load<Texture> (id.ToString());
 			servants.Add (servant);
@@ -168,10 +165,11 @@ public class listServant : MonoBehaviour {
 
 	private IEnumerator GetMyEmp()
 	{
-		WWWForm form = new WWWForm();
-		form.AddField("token", token);
-		form.AddField("uid", uid);
-		WWW www = new WWW("url", form);
+		Dictionary<string,string> header = new Dictionary<string,string> ();
+		header.Add("token", token);
+		header.Add("uid", ""+uid);
+		print ("token:" + token+" uid:"+uid);
+		WWW www = new WWW(url_getMyEmp,null,header);
 		yield return www;
 		if (www.error != null) 
 		{
@@ -179,7 +177,11 @@ public class listServant : MonoBehaviour {
 		} 
 		else 
 		{
+			print ("get message");
+			print (www.text);
 			emps= GetMyEmps (www.text);
+			servant_count = emps.Count;
+			print (servant_count);
 		} 
 
 	}
@@ -195,10 +197,10 @@ public class listServant : MonoBehaviour {
 			ceo = JsonMapper.ToObject<hero> (Hero [i].ToJson ());
 			for (int j = 0; j < Hero [i] ["skills"].Count; j++) {
 				skill1 = JsonMapper.ToObject<skill>(Hero [i] ["skills"][j].ToJson());
-				if(Hero [i] ["skills"].Keys.Contains("functions"))
+				if(Hero [i] ["skills"][j].Keys.Contains("functions"))
 				{
 					if (Hero [i] ["skills"][j] ["functions"].Count >= 2) {
-						for (int k = 0; k < Hero [i] ["skills"] ["functions"].Count; k++) {
+						for (int k = 0; k < Hero [i] ["skills"][j] ["functions"].Count; k++) {
 							skill1.functions [k] = JsonMapper.ToObject<Fun> (Hero [i] ["skills"][j] ["functions"] [k].ToJson ());
 
 						}
@@ -210,32 +212,35 @@ public class listServant : MonoBehaviour {
 			}
 			heros.Add (ceo);
 		}
+		print (ceo.skills[3].functions[0].number);
 		return heros;
 	}
-	//add tag
 	void AddTag(string tag,GameObject obj)
 	{
 		if(!isHasTag(tag))
-		{
-			SerializedObject tagManager = new SerializedObject(obj);//序列化物体
-			SerializedProperty it = tagManager.GetIterator();//序列化属性
+		{	
+			#if UNITY_EDITOR
+			UnityEditor.SerializedObject tagManager = new UnityEditor.SerializedObject(obj);//序列化物体
+			UnityEditor.SerializedProperty it = tagManager.GetIterator();//序列化属性
 			while (it.NextVisible(true))//下一属性的可见性
 			{
 				if(it.name == "m_TagString")
 				{
-					Debug .Log (it.stringValue );
 					it.stringValue =tag;
 					tagManager.ApplyModifiedProperties();
 				}
 			}
+			#endif
 		}
 	}
 	bool isHasTag(string tag)
 	{
+		#if UNITY_EDITOR
 		for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++) {
 			if (UnityEditorInternal.InternalEditorUtility.tags[i].Equals(tag))
 				return true;
 		}
+		#endif
 		return false;
 	}
 }
