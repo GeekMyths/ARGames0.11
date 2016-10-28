@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using LitJson;
 public class login : MonoBehaviour {
+	string url_login = "http://220.184.61.5:8080/Game1/s/user/login";
 	string token;
 	int state;
 	int uid;
@@ -39,6 +40,7 @@ public class login : MonoBehaviour {
 		yield return new WaitForSeconds(waitTime);
 		PlayerPrefs.SetInt("uid", uid);
 		PlayerPrefs.SetString ("token", token);
+		print ("token:" + token+" uid:"+uid);
 		Application.LoadLevel("Main");
 	}
 
@@ -56,8 +58,7 @@ public class login : MonoBehaviour {
 		WWWForm form = new WWWForm();
 		form.AddField("account", user);
 		form.AddField("pwd", password);
-		print ("asdasdasdasdasdasd");
-		WWW www = new WWW("http://192.168.174.198:8080/game1/s/login", form);
+		WWW www = new WWW(url_login, form);
 		yield return www;
 		if (www.error != null)
 		{
@@ -81,9 +82,7 @@ public class login : MonoBehaviour {
 		}
 	}
 	public void Onclick(){
-		Application.LoadLevel("Main");
-		//StartCoroutine(Login ());
-
+		StartCoroutine(Login ());
 	}
 
 }

@@ -30,6 +30,6 @@ public class bt_return : MonoBehaviour {
     IEnumerator gologin(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Application.LoadLevel("Game");
+        Application.LoadLevel("Login");
     }
 }

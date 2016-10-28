@@ -27,6 +27,6 @@ public class regit_onclick : MonoBehaviour {
     IEnumerator WaitAndPrint(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Application.LoadLevel("Gegit");
+        Application.LoadLevel("Regit");
     }
 }
